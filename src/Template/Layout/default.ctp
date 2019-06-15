@@ -24,34 +24,57 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
-    <?= $this->Html->meta('icon') ?>
+    <!-- <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+    <?= $this->fetch('script') ?> -->
+
+    <!-- Bootstrap -->
+    <link href="<?php echo $this->request->webroot; ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="<?php echo $this->request->webroot; ?>/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="<?php echo $this->request->webroot; ?>/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="<?php echo $this->request->webroot; ?>/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="<?php echo $this->request->webroot; ?>/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="<?php echo $this->request->webroot; ?>/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="<?php echo $this->request->webroot; ?>/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="<?php echo $this->request->webroot; ?>/build/css/custom.min.css" rel="stylesheet">
 </head>
-<body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
-            </ul>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <?php echo $this->element('sidebar'); ?>
+                <?php echo $this->element('top_bar'); ?>
+                <?php echo $this->element('content'); ?>
+                <?php echo $this->element('footer'); ?>
+            </div>
         </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
-    <footer>
-    </footer>
-</body>
+        <!-- jQuery -->
+        <script src="<?php echo $this->request->webroot; ?>/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="<?php echo $this->request->webroot; ?>/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="<?php echo $this->request->webroot; ?>/vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="<?php echo $this->request->webroot; ?>/vendors/nprogress/nprogress.js"></script>
+        <!-- bootstrap-wysiwyg -->
+        <script src="<?php echo $this->request->webroot; ?>/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+        <script src="<?php echo $this->request->webroot; ?>/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+        <script src="<?php echo $this->request->webroot; ?>/vendors/google-code-prettify/src/prettify.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="<?php echo $this->request->webroot; ?>/build/js/custom.min.js"></script>
+    </body>
 </html>
