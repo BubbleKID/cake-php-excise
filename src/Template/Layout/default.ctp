@@ -13,7 +13,7 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Clinic Management System with Cakephp';
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,14 +24,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
-    <!-- <?= $this->Html->meta('icon') ?>
-
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
-
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?> -->
+    <?= $this->Html->meta('icon') ?>
 
     <!-- Bootstrap -->
     <link href="<?php echo $this->request->webroot; ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -55,10 +48,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
+                <?php if($logedIn) : ?>
                 <?php echo $this->element('sidebar'); ?>
                 <?php echo $this->element('top_bar'); ?>
-                <?php echo $this->element('content'); ?>
                 <?php echo $this->element('footer'); ?>
+                <?php endif; ?>
+                <?php echo $this->element('content'); ?>
             </div>
         </div>
         <!-- jQuery -->

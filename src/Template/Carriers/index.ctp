@@ -1,39 +1,35 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
+ * @var \App\Model\Entity\Carrier[]|\Cake\Collection\CollectionInterface $carriers
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <?= $this->Element('actions', array('type' => 'User', 'types' => 'Users')); ?>
+    <?= $this->Element('actions', array('type' => 'Carrier', 'types' => 'Carriers')); ?>
 </nav>
-<div class="users index large-9 medium-8 columns content">
-    <h3><?= __('Users') ?></h3>
+<div class="carriers index large-9 medium-8 columns content">
+    <h3><?= __('Carriers') ?></h3>
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('active') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('carrier_code') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $user): ?>
+            <?php foreach ($carriers as $carrier): ?>
             <tr>
-                <td><?= $this->Number->format($user->id) ?></td>
-                <td><?= h($user->name) ?></td>
-                <td><?= h($user->email) ?></td>
-                <td><?= h($user->active) ?></td>
-                <td><?= h($user->created) ?></td>
-                <td><?= h($user->modified) ?></td>
+                <td><?= $this->Number->format($carrier->id) ?></td>
+                <td><?= h($carrier->name) ?></td>
+                <td><?= h($carrier->carrier_code) ?></td>
+                <td><?= h($carrier->created) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $carrier->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $carrier->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $carrier->id], ['confirm' => __('Are you sure you want to delete # {0}?', $carrier->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

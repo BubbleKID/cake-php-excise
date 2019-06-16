@@ -2,20 +2,18 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
-use Cake\Auth\DefaultPasswordHasher;
 
 /**
- * User Entity
+ * Doctor Entity
  *
  * @property int $id
  * @property string $name
- * @property string $email
- * @property string $password
- * @property bool|null $active
+ * @property bool $accepting_patients
  * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime|null $modified
+ *
+ * @property \App\Model\Entity\Appointment[] $appointments
  */
-class User extends Entity
+class Doctor extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -28,23 +26,8 @@ class User extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'email' => true,
-        'password' => true,
-        'active' => true,
+        'accepting_patients' => true,
         'created' => true,
-        'modified' => true
+        'appointments' => true
     ];
-
-    /**
-     * Fields that are excluded from JSON versions of the entity.
-     *
-     * @var array
-     */
-    protected $_hidden = [
-        'password'
-    ];
-
-    protected function _setPassword($password) {
-        return (new DefaultPasswordHasher)->hash($password);
-    }
 }
